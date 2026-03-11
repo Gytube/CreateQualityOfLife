@@ -69,11 +69,11 @@ public class ShadowSteelSword extends SwordItem implements QOLConfigurableItem {
     public void releaseUsing(ItemStack stack, Level level, LivingEntity lvEntity, int remainingTime) {
         if (!(lvEntity instanceof Player player)) return;
         if (!CreateQOLConfigs.server().equipments.tools.swordsAbilities.get()) return;
-        if (CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get() > 0 && !player.isCreative()) {
-            ItemStack backtank = BacktankUtil.getAllWithAir(player).stream().filter(i -> BacktankUtil.getAir(i) >= CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get()).findFirst().orElse(ItemStack.EMPTY);
-            if (backtank.isEmpty()) return;
-            BacktankUtil.consumeAir(player,backtank,CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get());
-        }
+        //if (CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get() > 0 && !player.isCreative()) {
+            //ItemStack backtank = BacktankUtil.getAllWithAir(player).stream().filter(i -> BacktankUtil.getAir(i) >= CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get()).findFirst().orElse(ItemStack.EMPTY);
+            //if (backtank.isEmpty()) return;
+            //BacktankUtil.consumeAir(player,backtank,CreateQOLConfigs.server().equipments.tools.swordsAirConsumption.get());
+        //}
         int usedTime = getUseDuration(stack,lvEntity) - remainingTime;
         float timeRatio = (float) usedTime / getUseDuration(stack,lvEntity);
         if (!level.isClientSide) {
